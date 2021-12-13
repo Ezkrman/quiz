@@ -114,16 +114,16 @@ function startTimeLine() {
         }
         let timeLineWidth = `${timeLineValue}%`
         timeLine.style.width = timeLineWidth
-        timeLineValue += 0.0268
+        timeLineValue += 0.0666
 
-    }, 1);
+    }, 10);
     const colorShift = setInterval(() => {
         if (isButtonClicked || Math.floor(timeLineValue) == 100) {
             clearInterval(colorShift)
         }
         timeLine.style.background = `hsl(${Math.floor(colorHue)}, 100%, 35%)`
-        colorHue -= 0.03
-    }, 1)
+        colorHue -= 0.07
+    }, 10)
 }
 
 function resetTimeLine() {
