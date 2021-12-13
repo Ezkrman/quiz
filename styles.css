@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+:root{
+    --small-font: clamp(.5rem, 3vmin, 1.2rem);
+    --big-font: clamp(.7rem, 3.5vmin, 1.4rem);
+    --bigger-font: clamp(.8rem, 4vmin, 1.5rem);
+    --even-bigger-font: clamp(1.5rem, 6vmin, 2.5rem);
+}
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.hide{
+    display: none;
+}
+.hover-disabled{
+    pointer-events: none;
+}
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: #007BFF;
+}
+/*Start Button*/
+.start-button{
+    font-size: var(--bigger-font);
+    padding: 0.3em 0.8em;
+    border-radius: 0.4em;
+    border: transparent;
+    box-shadow: .15em .15em .2em rgba(0,0,0,.3);
+    font-weight: 600;
+    color: #007BFF;
+    cursor: pointer;
+}
+/*Info Box*/
+.info-box, .question-box{
+    width: min(70%, 600px);
+    max-height: 85%;
+    background-color: white;
+    border-radius: 0.4em;
+    box-shadow: .3em .3em .2em rgba(0,0,0,.3);
+    overflow: hidden;
+    transition: all .3s ease;
+}
+.info-title{
+    min-height: 2.3em;
+    display: flex;
+    align-items: center;
+    font-size: var(--bigger-font);
+    font-weight: 600;
+    padding: 0.4em 0.8em;
+}
+.info-list{
+    padding: .5em 1.5em;
+    border: .15em solid rgb(168, 168, 168);
+    border-left: none;
+    border-right: none;
+}
+.info{
+    font-size: var(--small-font);
+    margin: .5em 0;
+}
+.info span{
+    color: #007BFF;
+    font-weight: 600;
+}
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+    padding: .8em;
+}
+.button{
+    font-size: var(--small-font);
+    padding: .3em 0.8em;
+    border-radius: 0.4em;
+    font-weight: 600;
+    border: 0.15em solid #007BFF;
+    cursor: pointer;
+}
+.quit{
+    background-color: white;
+    transition: all 0.3s ease;
+    color: #007BFF;
+}
+.quit:hover{
+    background-color: #007BFF;
+    color: white;
+}
+.continue{
+    background-color: #007BFF;
+    color: white;
+    transition: all 0.3s ease;
+}
+.continue:hover{
+    background-color: #0263CA;
+    border-color: #0263CA;
+}
+/*Question Box*/
+.title-and-timer{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.2em;
+    box-shadow: 0 .1em .3em rgba(0,0,0,0.3);
+}
+.quiz-title{
+    font-size: var(--big-font);
+    padding: .4em 0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.timer-container{
+    border: .1em solid #007BFF;
+    color: #007BFF;
+    font-size: var(--small-font);
+    display: flex;
+    align-items: center;
+    padding: .4em 0.8em;
+    background-color: #CCE5FF;
+    margin: .8em 0;
+    border-radius: .4em;
+    gap: .4em;
+}
+.timer{
+    border: 1px solid black;
+    padding: .3em .5em;
+    border-radius: .4em;
+    color: white;
+    font-weight: 500;
+    background-color: #343A40;
+    min-width: 2.3em;
+    display: flex;
+    justify-content: center;
+}
+.time-line{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: .2em;
+    background: hsl(130, 100%, 35%);
+}
+.question-and-options{
+    padding: .5em 1.2em;
+    border-bottom: .1em solid rgb(168, 168, 168);
+}
+.question-container{
+    font-size: var(--bigger-font);
+    font-weight: 600;
+    padding-bottom: .5em;
+}
+.options-container{
+    display: grid;
+}
+.options-container button:first-child{
+    margin-top: 0;
+}
+.options-container button:last-child{
+    margin-bottom: 0;
+}
+.option{
+    font-size: var(--small-font);
+    margin: .5em 0;
+    background: aliceblue;
+    border: .1em solid #84C5FE;
+    border-radius: .4em;
+    padding: .3em 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.option:hover{
+    color: #004085;
+    background-color: #CCE5FF;
+}
+.question-counter-container{
+    padding: .2em 0;
+    margin: .2em 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.counter-container{
+    font-size: var(--small-font);
+    min-height: 2.5em;
+    display: flex;
+    align-items: center;
+    column-gap: .3em;
+}
+.counter-container span{
+    font-weight: 600;
+}
+.next-question{
+    min-height: 2em;
+    font-size: var(--small-font);
+    background-color: #007BFF;
+    color: white;
+    font-weight: 600;
+    border-radius: .4em;
+    padding: .4em .8em;
+    border: .1em solid #007BFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.next-question:hover{
+    background-color: #0263CA;
+    border: .1em solid #0263CA;
+}
+@media(min-height: 550px){
+    .question-and-options{
+        padding: 1.5em 1.2em;
+    }
+    .question-counter-container{
+        margin: .7em 1.2em;
+    }
+}
+.correct{
+    color: #155724;
+    background-color: #D4EDDA;
+    border-color: #C3E6CB;
+}
+.wrong{
+    color: #721C24;
+    background-color: #F8D7DA;
+    border-color: #F5C6CB;
+}
+.missed{
+    color:rgb(109, 107, 20);
+    background-color:rgb(246, 245, 154);
+    border-color: rgb(231, 229, 137);
+}
+/*Final Score Box*/
+.results-container{
+    width: min(65%, 450px);
+    max-height: 85%;
+    background-color: white;
+    border-radius: 0.4em;
+    box-shadow: .3em .3em .2em rgba(0,0,0,.3);
+    overflow: hidden;
+    transition: all .3s ease;
+}
+.completed-prompt-container{
+    font-size: var(--even-bigger-font);
+    font-weight: 600;
+    padding: .5em 3em;
+    display: flex;
+    justify-content: center;
+}
+.completed-prompt{
+    text-align: center;
+}
+.score-container{
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.score-prompt{
+    font-size: var(--bigger-font);
+    text-align: center;
+}
+.score-span{
+    font-weight: 600;
+}
+.final-buttons-container{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1em;
+}
+.final-buttons-container button{
+    font-size: var(--big-font);
+}
+.replay{
+    background-color: white;
+    transition: all 0.3s ease;
+    color: #007BFF;
+}
+.replay:hover{
+    background-color: #007BFF;
+    color: white;
+}
+.exit{
+    background-color: #007BFF;
+    color: white;
+    transition: all 0.3s ease;
+}
+.exit:hover{
+    background-color: #0263CA;
+    border-color: #0263CA;
+}
