@@ -175,10 +175,6 @@ body{
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.option:hover{
-    color: #004085;
-    background-color: #CCE5FF;
-}
 .question-counter-container{
     padding: .2em 0;
     margin: .2em 1.2em;
@@ -293,4 +289,10 @@ body{
 .exit:hover{
     background-color: #0263CA;
     border-color: #0263CA;
+}
+@media (hover:hover){    
+    .option:hover{
+        color: #004085;
+        background-color: #CCE5FF;
+    }
 }
