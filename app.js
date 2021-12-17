@@ -93,6 +93,7 @@ function startTimer() {
                 correctAnswer.classList.add('correct')
             }
             if (Math.floor(secondsInTimer) == 0) {
+                currentQuestionIndex++
                 clearInterval(descending)
                 showNextButton()
                 disableAllButtons()
@@ -163,6 +164,8 @@ nextButton.addEventListener('click', () => {
 function showNextButton() {
     nextButton.classList.remove('hide')
 }
+
+
 
 exitButton.addEventListener('click', () => {
     finalBox.classList.add('hide')
