@@ -108,7 +108,7 @@ function startTimer() {
 
 function startTimeLine() {
     let timeLineValue = 0
-    let colorHue = 130
+    let colorHue = 120
     const growing = setInterval(() => {
         if (isButtonClicked || Math.floor(timeLineValue) == 100) {
             clearInterval(growing)
@@ -122,7 +122,7 @@ function startTimeLine() {
         if (isButtonClicked || Math.floor(timeLineValue) == 100) {
             clearInterval(colorShift)
         }
-        timeLine.style.background = `hsl(${Math.floor(colorHue)}, 100%, 35%)`
+        timeLine.style.background = `hsl(${Math.floor(colorHue)}, 100%, 40%)`
         colorHue -= 0.07
     }, 10)
 }
