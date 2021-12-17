@@ -43,8 +43,7 @@ function startQuiz() {
     currentQuestionIndex = 0
     resetOptions()
     showQuestion(shuffledQuestions[currentQuestionIndex])
-    startTimer()
-    startTimeLine()
+    startTimedEvents()
 }
 
 function showQuestion(receivedQuestion) {
@@ -80,7 +79,7 @@ function resetOptions() {
     }
 }
 
-function startTimer() {
+function startTimedEvents() {
     let secondsInTimer = 15
     numberOfSeconds.innerText = String(Math.floor(secondsInTimer))
     setTimeout(() => {
@@ -104,9 +103,7 @@ function startTimer() {
             secondsInTimer -= 0.01
         }, 10);
     }, 990);
-}
 
-function startTimeLine() {
     let timeLineValue = 0
     let colorHue = 120
     const growing = setInterval(() => {
@@ -146,7 +143,7 @@ nextButton.addEventListener('click', () => {
     }
     else {
         isButtonClicked = false
-        startTimer()
+        startTimedEvents()
         resetOptions()
         showQuestion(shuffledQuestions[currentQuestionIndex])
         questionCounter++
@@ -157,7 +154,6 @@ nextButton.addEventListener('click', () => {
             nextButton.innerText = 'Finish Quiz'
         }
         resetTimeLine()
-        startTimeLine()
     }
 })
 
@@ -166,8 +162,7 @@ function showNextButton() {
 }
 
 
-
-exitButton.addEventListener('click', () => {
+function originalState() {
     finalBox.classList.add('hide')
     questionCounter = 1
     questionCounterContainer.innerText = String(questionCounter)
@@ -175,20 +170,19 @@ exitButton.addEventListener('click', () => {
     questionNumberContainer.innerText = `${questionNumber}. `
     isButtonClicked = false
     correctAnswersCounter = 0
+    nextButton.innerText = 'Next question'
+}
+
+
+exitButton.addEventListener('click', () => {
+    originalState()
     nextButton.innerText = 'Next question'
     startButtonContainer.classList.remove('hide')
 })
 
 replayButton.addEventListener('click', () => {
-    finalBox.classList.add('hide')
+    originalState()
     questionBox.classList.remove('hide')
-    questionCounter = 1
-    questionCounterContainer.innerText = String(questionCounter)
-    questionNumber = 1
-    questionNumberContainer.innerText = `${questionNumber}. `
-    isButtonClicked = false
-    correctAnswersCounter = 0
-    nextButton.innerText = 'Next question'
     startQuiz()
 })
 
