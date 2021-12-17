@@ -48,7 +48,8 @@ function startQuiz() {
 
 function showQuestion(receivedQuestion) {
     questionPrompt.innerText = receivedQuestion.question
-    receivedQuestion.answers.forEach(answer => {
+    shuffledOptions = receivedQuestion.answers.sort(() => Math.random() - .5)
+    shuffledOptions.forEach(answer => {
         const button = document.createElement('button')
         button.innerText = answer.text
         button.classList.add('option')
@@ -190,8 +191,8 @@ const questions = [
     {
         question: 'What does HTML stand for?',
         answers: [
-            { text: 'Hyper Text Preprocessor', correct: false },
             { text: 'Hyper Text Markup Language', correct: true },
+            { text: 'Hyper Text Preprocessor', correct: false },
             { text: 'Hyper Text Multiple Language', correct: false },
             { text: 'Hyper Tool Multi Language', correct: false }
         ]
@@ -199,10 +200,10 @@ const questions = [
     {
         question: 'What does CSS stand for?',
         answers: [
+            { text: 'Cascading Style Sheet', correct: true },
             { text: 'Common Style Sheet', correct: false },
             { text: 'Colorful Style Sheet', correct: false },
-            { text: 'Computer Style Sheet', correct: false },
-            { text: 'Cascading Style Sheet', correct: true }
+            { text: 'Computer Style Sheet', correct: false }
         ]
     },
     {
@@ -217,10 +218,10 @@ const questions = [
     {
         question: 'What does SQL stand for?',
         answers: [
+            { text: 'Structured Query Language', correct: true },
             { text: 'Stylish Question Language', correct: false },
             { text: 'Stylesheet Query Language', correct: false },
-            { text: 'Statement Question Language', correct: false },
-            { text: 'Structured Query Language', correct: true }
+            { text: 'Statement Question Language', correct: false }
         ]
     },
     {
